@@ -1,100 +1,27 @@
-var app = angular.module('Atlas', ['ui', '$strap.directives']);
-
-app.config(function ($routeProvider) {
-    $routeProvider
-        .when('/home', { templateUrl: 'App/partials/home.html', controller: 'homeController' })
-        .when('/blog', { templateUrl: 'App/partials/blog.html', controller: 'blogController' })
-        .when('/blog2', { templateUrl: 'App/partials/blog2.html', controller: 'blog2Controller' })
-        .when('/blogPage/:id', { templateUrl: 'App/partials/blogPage.html', controller: 'blogPageController' })
-        .when('/about', { templateUrl: 'App/partials/about.html', controller: 'aboutController' })
-        .otherwise({ redirectTo: '/home' });
-    
+require.config({ 
+    paths: {
+        'jQuery': '/Scripts/jquery-1.9.1.min',
+        'angular': '/Scripts/angular.min',
+        'angular-ui': '/Scripts/angular-ui.min',
+        'angular-strap': '/Scripts/angular-strap',
+        'bootstrap': '/Scripts/bootstrap.min',
+        'modernizr': '/Scripts/modernizr-2.5.3',
+        'cslider': '/Scripts/jquery.cslider'
+    },
+    baseUrl: 'app/js',
+    shim: {
+        'jQuery': { 'exports': 'jQuery' },
+        'angular': { 'exports': 'angular' },
+        'angular-ui': { deps: ['angular'] },
+        'angular-strap': { deps: ['angular'] }
+    },
+    priority: [
+		"angular"
+    ]
 });
 
-app.value('ui.config', {
-    jq: {
-        cslider: { autoplay: true, bgincrement: 450 }
-    }
-});
-
-app.controller('mainController', function ($scope, $location, dataservice) {
+require(['jQuery', 'angular', 'routes/mainRoutes'], function ($, angular) {
     
-    $scope.$location = $location;
-    
-    dataservice.onEntityChange(function (args) {
-        $scope.$apply();
-       // console.log(args);
-    });
-});
-
-app.controller('homeController', function ($scope) {
-     
-});
-
-app.controller('blogController', function ($scope, breeze, dataservice) {
-
-    var hub = $.connection.AtlasHub;
-    var pageEntity = null;
-    
-    $.connection.hub.start();
-    
-    hub.client.changePage = function (message) {
-        pageEntity.title = message.Content;
-        
-    };
-
-    hub.client.changePostNames = function (message) {
-        angular.forEach(pageEntity.posts, function (post) {
-            post.name = message.Content;
-        });
-    };
-    
-    hub.client.changeCommentNames = function (message) {
-        angular.forEach(pageEntity.posts, function (post) {
-            angular.forEach(post.comments, function (comment) {
-                comment.content = message.Content;
-            });
-        });
-    };
-
-    $scope.changePage = function () {
-        hub.server.changePage({ Content: $scope.newPageName });
-    };
-
-    $scope.changePosts = function() {
-        hub.server.changePostNames({ Content: $scope.newPostName });
-    };
-    
-    $scope.changeComments = function () {
-        hub.server.changeCommentNames({ Content: $scope.newCommentName });
-    };
-    
-
-    dataservice.getPage().then(function(page) {
-        pageEntity = page;
-        dataservice.getComments().then(succeeded);
-    });
-    
-    function succeeded(data) {
-        $scope.data = pageEntity;
-        $scope.$apply();
-    }
+        angular.bootstrap(document, ['mainApp']); 
    
 });
-
-app.controller('blog2Controller', function ($scope) {
-    
-});
-
-app.controller('blogPageController', function ($scope) {
-
-});
-
-app.controller('aboutController', function ($scope) {
-
-});
-
-app.value('breeze', window.breeze);
-
-
-

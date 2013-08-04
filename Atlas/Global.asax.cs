@@ -18,8 +18,6 @@ namespace Atlas
         {
             AreaRegistration.RegisterAllAreas();
 
-
-            RouteTable.Routes.MapHubs(); // Register the default hubs route: ~/signalr/hubs
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
