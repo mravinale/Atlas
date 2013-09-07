@@ -15,15 +15,11 @@ namespace Atlas.Models
     public class Post
     {
         public int id { get; set; }
-        public string name { get; set; }
+        public string title { get; set; }
+        public string content { get; set; }
+        public string previewImage { get; set; }
         public int page_id { get; set; }
     }
-
-    public class Comment
-    {
-        public int id { get; set; }
-        public string content { get; set; }
-        public int post_id { get; set; }
-    }
+     
      
 }

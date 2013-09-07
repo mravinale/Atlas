@@ -10,8 +10,8 @@ namespace Atlas
         public static void Register(HttpConfiguration config)
         {
             config.Routes.MapHttpRoute(
-                name: "BreezeApi",
-                routeTemplate: "breeze/{controller}/{action}"
+                name: "api",
+                routeTemplate: "api/{controller}/{action}"
             );
         }
          
