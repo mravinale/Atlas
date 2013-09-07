@@ -14,17 +14,20 @@ require.config({
     shim: {
         'jQuery': { 'exports': 'jQuery' },
         'angular': { 'exports': 'angular' },
-        'angular-ui': { deps: ['angular'] },
+        'angular-ui': { deps: ['angular', 'cslider'] },
         'angular-strap': { deps: ['angular'] },
         'angular-aloha': { deps: ['jQuery','angular','aloha'] }
     },
-    priority: [
-		"angular"
-    ]
+    priority: ['jQuery', 'cslider', 'angular' ]
 });
 
-require(['jQuery', 'angular', 'routes/mainRoutes'], function ($, angular) {
+require(['jQuery', 'angular','routes/mainRoutes'], function ($, angular) {
     
-        angular.bootstrap(document, ['mainApp']); 
-   
+    angular.module('ui.config', ['ui']).value('ui.config', {
+        jq: {
+            cslider: { autoplay: true, bgincrement: 450 }
+        }
+    });   
+
+    angular.bootstrap(document, ['mainApp']);
 });
