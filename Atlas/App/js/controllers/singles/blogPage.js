@@ -1,4 +1,4 @@
-define(['modules/mainApp', 'services/blogPage'], function (mainApp) {
+define(['modules/mainApp', 'services/blog'], function (mainApp) {
     
     mainApp.controller('blogPageController', function ($scope, blogPageService) {
 
@@ -11,7 +11,7 @@ define(['modules/mainApp', 'services/blogPage'], function (mainApp) {
                 .then(function (page) {
                     console.log(page.posts);
                     $scope.posts = page.posts;
-                },function(error) {
+                }, function(error) {
                     $scope.status = 'Unable to load preview page data: ' + error.message;
                 });
         };

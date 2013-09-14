@@ -8,7 +8,7 @@ define(['modules/mainApp', 'controllers/singles/home', 'controllers/singles/blog
             .when('/about', { templateUrl: 'App/html/partials/about.html', controller: 'aboutController' })
             .otherwise({ redirectTo: '/home' });
 
-        $locationProvider.html5Mode(true)
+        $locationProvider.html5Mode(false)
 
     });
 

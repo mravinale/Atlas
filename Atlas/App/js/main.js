@@ -8,7 +8,7 @@ require.config({
         'bootstrap': '/Scripts/boostrap/bootstrap.min',
         'modernizr': '/Scripts/jquery/modernizr-2.5.3',
         'cslider': '/Scripts/jquery/jquery.cslider',
-        'angular-aloha': '/App/html/directives/angular-aloha'
+        'angular-aloha': '/App/js/directives/angular-aloha'
     },
     baseUrl: 'app/js',
     shim: {

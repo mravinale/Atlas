@@ -37,15 +37,10 @@
       </div>
       
       <div class="container">
-          <article class="row-fluid" >
-           
-              <aloha compile="content" aloha-page="home" aloha-id="blog-post1" class="span4 content"></aloha>
-              <div class="span4 content">
-                  <h2>Blog Post 2</h2><p>Suspendisse potenti. Donec egestas metus quis mauris ullamcorper eu consequat enim vulputate. Duis dictum ornare</p><p><a class='btn' href='/Blog'>Model details &raquo;</a></p> 
-              </div>
-              <div class="span4 content">
-                  <h2>Blog Post 3</h2><p>Suspendisse potenti. Donec egestas metus quis mauris ullamcorper eu consequat enim vulputate. Duis dictum ornare</p><p><a id='button2' class='btn' href='/Blog'>Model details &raquo;</a></p> 
-              </div>
+          <article class="row-fluid" >           
+              <aloha compile="posts[0].content" aloha-page="home" aloha-id="blog-post1" class="span4 content"></aloha>
+              <aloha compile="posts[1].content" aloha-page="home" aloha-id="blog-post2" class="span4 content"></aloha>
+              <aloha compile="posts[2].content" aloha-page="home" aloha-id="blog-post3" class="span4 content"></aloha>
           </article>
       </div>
   </div> 

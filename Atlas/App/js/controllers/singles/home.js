@@ -1,17 +1,24 @@
-define(['modules/mainApp'], function (mainApp) {
-    mainApp.controller('homeController', function ($scope, $location) {
+define(['modules/mainApp', 'services/home'], function (mainApp) {
+    mainApp.controller('homeController', function ($scope, homeService) {
 
-        $scope.$location = $location;
+        $scope.posts;
+        $scope.status;
+              
+        var getPreviewPage = function () {
+            homeService.getPreviewPosts().then(function (posts) {
+                    $scope.posts = posts.data; 
+                }, function (error) {
+                    $scope.status = 'Unable to load preview page data: ' + error.message;
+                });
+        };
 
-        $scope.content = "<h2>Blog Post 1</h2><p >Suspendisse potenti. Donec egestas metus quis mauris ullamcorper eu consequat enim vulputate. Duis dictum ornare ante at accumsan. Mauris ornare sodales pretium.</p>" +
-                "<p>" +
-                "<a class='btn' href='/Blog'>Model details &raquo;</a>" +
-                "</p> "        
-        
+        $scope.init = function () {
+            getPreviewPage();
+        };
 
-    });
+        $scope.init();
 
-   
+    });   
 
 });
 

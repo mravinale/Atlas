@@ -1,0 +1,73 @@
+﻿<!DOCTYPE HTML>
+<html lang="en-US">
+    <head>
+        <meta charset="UTF-8">
+        <title>Atlas</title>
+     
+        <!-- Styles Includes -->
+        <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+        <link href="~/Content/bootstrap-responsive.css" rel="stylesheet" />
+        <link href="~/Content/Site.css" rel="stylesheet" />
+        
+        <link href="~/Content/jquery.parallax.css" rel="stylesheet" />
+        
+        <link href="~/Content/aloha/css/aloha.css" type="text/css" rel="stylesheet" />
+
+
+    </head>
+
+<body >
+
+    <!-- Navigation -->
+    <div class="navbar navbar-fixed-top" bs-navbar>
+        <div class="navbar-inner">
+            <div class="container">
+                <a class="brand" href="#/home">Atlas</a>
+                <ul class="nav">
+                    <li data-match-route="/home"><a href="#/home">Home</a></li>
+                    <li data-match-route="/blog"><a href="#/blog">Blog</a></li>
+                    <li data-match-route="/about"><a href="#/about">About</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+   <!-- Content -->
+    <div class="container-fluid" id="main">
+        <div class="row-fluid">
+            <!-- pages -->
+            <ng-view></ng-view>
+        </div>
+    </div>
+    
+
+    <script src="~/Scripts/require.js" data-main="App/js/main"></script> 
+    
+    <script>
+        var Aloha = window.Aloha || (window.Aloha = {});
+        Aloha.settings = {
+            bundles: {
+                custom: '../Scripts/aloha'
+            },
+            locale: 'en',
+            plugins: {
+                load: "custom/ui,custom/format,custom/table,custom/list,custom/link,custom/highlighteditables,custom/block,custom/image,custom/undo,custom/contenthandler,custom/paste,custom/commands,custom/abbr",
+                format: {
+                    config: ['b', 'i', 'u', 'del', 'sub', 'sup', 'p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'pre'],
+                    editables: {
+                        heading1: ['b', 'i', 'u', 'del', 'sub', 'sup'],
+                        heading2: ['b', 'i', 'u', 'del', 'sub', 'sup'],
+                        heading3: ['b', 'i', 'u', 'del', 'sub', 'sup']
+                    }
+                }
+            },
+            sidebar: {
+                disabled: true
+            }
+        };
+</script>
+ 
+
+
+</body>
+</html>
