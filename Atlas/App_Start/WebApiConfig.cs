@@ -10,8 +10,9 @@ namespace Atlas
         public static void Register(HttpConfiguration config)
         {
             config.Routes.MapHttpRoute(
-                name: "api",
-                routeTemplate: "api/{controller}/{action}"
+                name: "DefaultApi",
+                routeTemplate: "api/{controller}/{action}/{id}",
+                defaults: new { id = RouteParameter.Optional }
             );
         }
          

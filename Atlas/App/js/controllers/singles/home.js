@@ -5,10 +5,10 @@ define(['modules/mainApp', 'services/home'], function (mainApp) {
         $scope.status;
               
         var getPreviewPage = function () {
-            homeService.getPreviewPosts().then(function (posts) {
+            homeService.getPosts().then(function (posts) {
                     $scope.posts = posts.data; 
                 }, function (error) {
-                    $scope.status = 'Unable to load preview page data: ' + error.message;
+                    console.log(error); // = 'Unable to load preview page data: ' + error.message;
                 });
         };
 

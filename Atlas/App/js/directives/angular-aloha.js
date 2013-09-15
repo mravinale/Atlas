@@ -2,6 +2,7 @@
 
 // declare a new module, and inject the $compileProvider
 angular.module('compile', [], function ($compileProvider) {
+
     // configure new 'compile' directive by passing a directive
     // factory function. The factory function injects the '$compile'
     $compileProvider.directive('compile', function ($compile) {
@@ -28,7 +29,7 @@ angular.module('compile', [], function ($compileProvider) {
     })
 });
 
-angular.module('aloha', []).directive('aloha', ['$location', '$compile', function ($location, $compile) {
+angular.module('aloha', []).directive('aloha', ['$location', '$compile', 'homeService', function ($location, $compile, homeService) {
      
 
 	// Because angularjs would route clicks on any links, but we
@@ -95,12 +96,21 @@ angular.module('aloha', []).directive('aloha', ['$location', '$compile', functio
 		    Aloha.ready(function () {
 		        
 		        $(elem).aloha();
-		        console.log(attrs);
+		        //Aloha.bind('aloha-editable-deactivated', function (jEvent, jData) {
 		        Aloha.bind('aloha-smart-content-changed', function (jEvent, jData) {
-		                $scope.alohaContent = jData.editable.getContents();
-		                $scope.$apply();
-                    
-		                console.log($scope.alohaContent);
+ 
+		            if (jData.editable.getId() != attrs.id) return;
+
+		            homeService.updatePost({
+		                id: parseInt(jData.editable.getId()),
+		                title: $('#' + jData.editable.getId()).attr("title"),
+		                content: $('#' + jData.editable.getId()).html()
+		            }).then(function (posts) {
+		                console.log(jData.editable.getContents());
+		            }, function (error) {
+		                console.log(error);
+		            });
+
 		        });
 
 
@@ -108,7 +118,6 @@ angular.module('aloha', []).directive('aloha', ['$location', '$compile', functio
 					$(elem).mahalo();
 				});
 		    });
-
 		    
 		    replaceAngularLinkClickHandler(elem);
 		}
