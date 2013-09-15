@@ -29,7 +29,7 @@ angular.module('compile', [], function ($compileProvider) {
     })
 });
 
-angular.module('aloha', []).directive('aloha', ['$location', '$compile', 'homeService', function ($location, $compile, homeService) {
+angular.module('aloha', []).directive('aloha', ['$location', '$compile', '$http', function ($location, $compile, $http, $rootScope) {
      
 
 	// Because angularjs would route clicks on any links, but we
@@ -96,25 +96,20 @@ angular.module('aloha', []).directive('aloha', ['$location', '$compile', 'homeSe
 		    Aloha.ready(function () {
 		        
 		        $(elem).aloha();
-		        //Aloha.bind('aloha-editable-deactivated', function (jEvent, jData) {
+
 		        Aloha.bind('aloha-smart-content-changed', function (jEvent, jData) {
  
 		            if (jData.editable.getId() != attrs.id) return;
 
-		            homeService.updatePost({
+		            $scope.$emit('Update'+attrs.type, {
 		                id: parseInt(jData.editable.getId()),
-		                title: $('#' + jData.editable.getId()).attr("title"),
+		                type: attrs.type,
 		                content: $('#' + jData.editable.getId()).html()
-		            }).then(function (posts) {
-		                console.log(jData.editable.getContents());
-		            }, function (error) {
-		                console.log(error);
 		            });
-
+                    		           
 		        });
 
-
-				$scope.$on('$destroy', function () {
+                $scope.$on('$destroy', function () {
 					$(elem).mahalo();
 				});
 		    });

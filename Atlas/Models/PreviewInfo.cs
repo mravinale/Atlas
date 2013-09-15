@@ -5,10 +5,9 @@ using System.Web;
 
 namespace Atlas.Models
 {
-    public class Post : Editable
+    public class PreviewInfo : Editable
     { 
-        public string title { get; set; }
-        public string image { get; set; } 
+
     }     
      
 }

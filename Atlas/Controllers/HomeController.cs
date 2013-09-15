@@ -15,20 +15,20 @@ namespace Atlas.Controllers
 {
     public class HomeController : RavenDbController
     {
-         [HttpGet]
-        public async Task<IList<Post>> Posts()
+        [HttpGet]
+        public async Task<IList<PreviewInfo>> PreviewInfo()
         {
-            return await Session.Query<Post>().ToListAsync();
+            return await Session.Query<PreviewInfo>().OrderBy(i => i.id).ToListAsync();
         }
 
-          [HttpPut]
-        public async Task<HttpResponseMessage> UpdatePost(int id, [FromBody]Post post)
+        [HttpPut]
+        public async Task<HttpResponseMessage> UpdatePreviewInfo(int id, [FromBody]Editable editable)
         {
-            var result = await Session.Query<Post>().Where(x => x.id == id).ToListAsync();
-             
-             result.FirstOrDefault().content = post.content;
-             await Session.StoreAsync(result.FirstOrDefault());
-                           
+            var result = await Session.Query<PreviewInfo>().Where(x => x.id == id).ToListAsync();
+
+            result.FirstOrDefault().content = editable.content;
+            await Session.StoreAsync(result.FirstOrDefault());
+                      
 
             return new HttpResponseMessage(HttpStatusCode.OK);
         }       

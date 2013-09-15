@@ -1,16 +1,16 @@
 define(['modules/mainApp'], function (mainApp) {
     
-    mainApp.service('homeService', ['$http', function ($http, $q) {
+    mainApp.service('homeService', ['$http', function ($http) {
 
         var urlBase = '/api/home/';
 
-        this.getPosts = function () {
-            return $http.get(urlBase+'Posts');
+        this.getPreviewInfo = function () {
+            return $http.get(urlBase + 'PreviewInfo');
         };
 
-        this.updatePost = function (post) { 
-            return $http.put(urlBase + 'UpdatePost/' + post.id, post);
-        };        
+        this.updatePreviewInfo = function (editable) { 
+            return $http.put(urlBase + 'UpdatePreviewInfo/' + editable.id, editable);
+        };
 
         
     }]);

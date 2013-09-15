@@ -6,70 +6,26 @@
     <div class="container txt-lefty">
         <div class="row-fluid">
             <div class="span9">
-                <div class="entry">
+                <div class="entry" ng-repeat="post in posts ">
                     <a href="single.html">
-                        <h2>Post Title</h2>
+                        <h2>{{post.title}}</h2>
                     </a>
-                    <small><em>Posted December 28, 2012 by <a href="#">Admin</a> with <a href="#">4 comments</a></em></small>
+                    <small><em>Posted December 28, 2012</em></small>
                     <hr>
                     <div class="row-fluid">
                         <div class="span5">
-                            <a href="#/blogPage/1">
-                                <img alt="image" class="img-polaroid" src="http://quickimage.it/600x300">
+                            <a href="#/blogPage/{{post.id}}">
+                                <img alt="image" class="img-polaroid" max-width="600px" max-height="300px" src="http://quickimage.it/1200x400">
                             </a>
                         </div>
                         <div class="span7">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur .</p>
-                            <a  href="#/blogPage/1" class="btn btn-primary">Read More</a>
+                            <div ng-bind-html-unsafe="post.content"></div>
+                          
+                           <a href="#/blogPage/{{post.id}}" class="btn btn-primary">Read More</a>
                         </div>
                     </div>
                 </div>
-                <div class="entry">
-                    <a href="single.html">
-                        <h2>Post Title</h2>
-                    </a>
-                    <small><em>Posted December 28, 2012 by <a href="#">Admin</a> with <a href="#">4 comments</a></em></small>
-                    <hr>
-                    <div class="row-fluid">
-                        <div class="span5">
-                           <a href="#/blogPage/2">
-                                <img alt="image" class="img-polaroid" src="http://quickimage.it/600x300">
-                            </a>
-                        </div>
-                        <div class="span7">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur .</p>
-                              <a  href="#/blogPage/2" class="btn btn-primary">Read More</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="entry">
-                    <a href="single.html">
-                        <h2>Post Title</h2>
-                    </a>
-                    <small><em>Posted December 28, 2012 by <a href="#">Admin</a> with <a href="#">4 comments</a></em></small>
-                    <hr>
-                    <div class="row-fluid">
-                        <div class="span5">
-                           <a href="#/blogPage/3">
-                                <img alt="image" class="img-polaroid" src="http://quickimage.it/600x300">
-                            </a>
-                        </div>
-                        <div class="span7">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur .</p>
-                             <a  href="#/blogPage/3" class="btn btn-primary">Read More</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="pagination pagination-right">
-                    <ul>
-                        <li><a href="#">&#171;</a></li>
-                        <li><a href="#">1</a></li>
-                        <li class="active"><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">&#187;</a></li>
-                    </ul>
-                </div>
+              
             </div>
             <div class="span3">
                 <div class="accordion" id="accordion2">
