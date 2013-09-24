@@ -1,0 +1,148 @@
+<div id="content">
+	  <div class="container txt-lefty">			
+	    <div class="row-fluid">
+		  <div class="span9">
+        
+              <div class="row-fluid">
+                  <h2 contenteditable ng-model="post.title"> </h2>
+              </div>              
+        
+			<div class="entry">			  
+			  <div class="row-fluid"><!-- create title in new directive -->
+                <aloha compile="post.content" id="{{post.id}}" type="{{post.type}}" class="span12 content"></aloha>			   		
+			  </div>
+            </div>
+			<div class="entry">
+			  <div class="row-fluid">
+			    <div class="span12">			
+				  <h3>Comments (4) <small>- <a href="#">Add Comment</a></small></h3> 
+				  <hr>				  
+				  <div class="media">
+                    <a class="pull-left" href="#"><img class="media-object img-polaroid" alt="image" src="http://quickimage.it/64x64"></a>
+                    <div class="media-body">
+                      <h4 class="media-heading">Jim Sturgess</h4>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur.</p>
+					  <small><em>Jan 4, 2013</em> - <a href="#">Reply</a></small>
+                    </div>
+                  </div>
+				  <div class="media">
+                    <a class="pull-left" href="#"><img class="media-object img-polaroid" alt="image" src="http://quickimage.it/64x64"></a>
+                    <div class="media-body">
+                      <h4 class="media-heading">Ashley Marks</h4>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur.</p>
+					  <small><em>Jan 4, 2013</em> - <a href="#">Reply</a></small>                     
+					  <div class="media">
+					    <a class="pull-left" href="#"><img class="media-object img-polaroid" alt="image" src="http://quickimage.it/64x64"></a>
+					    <div class="media-body">
+						  <h4 class="media-heading">Jim Sturgess</h4>
+						  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur.</p>
+						  <small><em>Jan 4, 2013</em> - <a href="#">Reply</a></small>
+						</div>
+					  </div>
+					</div>
+                  </div>
+				  <div class="media">
+                    <a class="pull-left" href="#"><img class="media-object img-polaroid" alt="image" src="http://quickimage.it/64x64"></a>
+                    <div class="media-body">
+                      <h4 class="media-heading">Frank Storm</h4>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur.</p>
+                      <small><em>Jan 3, 2013</em> - <a href="#">Reply</a></small>					  
+					</div>
+                  </div>				  
+				</div>				
+			  </div>
+            </div>
+			<div class="entry">
+			  <div class="row-fluid">
+			    <div class="span12">			
+				  <h3>Add Comment</h3>
+				  <hr>
+				  <form>
+                    <fieldset>
+                      <label>Name</label>
+                      <input type="text" placeholder="Name">
+                      <label>Email</label>
+                      <input type="text" placeholder="Email">
+                      <label>Comment</label>	
+	                  <textarea rows="3"></textarea>
+                    </fieldset>
+	                <button type="submit" class="btn">Add Comment</button>
+                  </form>			  
+				</div>				
+			  </div>
+            </div>			
+		  </div>
+		  <div class="span3">
+			<div class="accordion" id="accordion2">
+              <div class="accordion-group">
+                <div class="accordion-heading">
+                  <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">Newest Posts</a>
+                </div>
+                <div id="collapseOne" class="accordion-body collapse">
+                  <div class="accordion-inner">
+                    <div class="media">
+                      <a class="pull-left" href="#">
+                        <img class="media-object" alt="image" src="http://quickimage.it/64x64">
+                      </a>
+                      <div class="media-body">
+                        <h4 class="media-heading">Post Title</h4>
+                        <ul class="unstyled">
+                          <li><small>Jan 3, 2013</small></li>
+                          <li><small>EvanC93</small></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-group">
+                <div class="accordion-heading">
+                  <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">Popular Posts</a>
+                </div>
+                <div id="collapseTwo" class="accordion-body collapse">
+                  <div class="accordion-inner">
+                    <ul class="unstyled">
+					  <li><a href="#">Post Title</a></li>
+					  <li><a href="#">Another Post</a></li>
+					  <li><a href="#">Another Post</a></li>
+					</ul>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-group">
+                <div class="accordion-heading">
+                  <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree">Popular Tags</a>
+                </div>
+                <div id="collapseThree" class="accordion-body collapse in">
+                  <div class="accordion-inner">
+                    <span class="label label-info">Web Design</span>
+					<span class="label label-info">HTML 5</span>
+					<span class="label label-info">Bootstrap</span>
+					<span class="label label-info">WrapBootstrap</span>
+					<span class="label label-info">2013</span>
+                  </div>
+                </div>
+              </div>			  
+            </div>		  
+			<h3>Text Widget</h3>
+			<hr class="halfed">
+			<p>Vivamus rutrum lorem vel puruscondimentum scelerisque. Vivamus viverra risus eu nibh tesque. Proin sed ipsum ipsum, sed placerat eros.</p>
+			 
+			<h3>Tabs Widget</h3>
+			<hr class="halfed">
+            <ul class="nav nav-tabs" id="myTab">
+              <li class="active"><a data-toggle="tab" href="#tabOne">Tab 1</a></li>
+              <li><a data-toggle="tab" href="#tabTwo">Tab 2</a></li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+              <div id="tabOne" class="tab-pane fade active in">
+                <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.</p>
+              </div>
+              <div id="tabTwo" class="tab-pane fade">
+                <p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar helvetica VHS salvia yr, vero magna velit sapiente labore stumptown. Vegan fanny pack odio cillum wes anderson 8-bit, sustainable jean shorts beard ut DIY ethical culpa terry richardson biodiesel. Art party scenester stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park.</p>
+              </div>
+            </div>			
+		  </div>		  
+		</div>		
+	  </div>
+	</div>
