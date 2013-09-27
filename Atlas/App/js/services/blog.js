@@ -4,18 +4,21 @@ define(['modules/mainApp'], function (mainApp) {
 
         var urlBase = '/api/blog/';
 
-        this.getPostPreview = function () {
-            return $http.get(urlBase + 'PreviewPost');
+        this.getPost = function (id) {
+            return $http.get(urlBase + 'GetPost/' + id);
         };
 
-        this.getFullPost = function (id) {
-            return $http.get(urlBase + 'FullPost/'+id);
+        this.getAllPost = function () {
+            return $http.get(urlBase + 'GetAllPost');
+        };
+              
+        this.updatePost = function (post) {
+            return $http.put(urlBase + 'UpdatePost/' + post.id, post);
         };
 
-        this.createFullPost = function () {
-            return $http.post(urlBase + 'CreateFullPost');
+        this.createPost = function () {
+            return $http.post(urlBase + 'CreatePost');
         };
-
         
     }]);
 

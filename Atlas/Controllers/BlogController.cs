@@ -9,51 +9,48 @@ using System.Threading.Tasks;
 using Raven.Client;
 using Raven.Client.Document;
 using Raven.Client.Linq;
-using System.Linq;
 
 namespace Atlas.Controllers
 {
     public class BlogController : RavenDbController
     {
-
+        
         [HttpGet]
-        public async Task<IList<PreviewPost>> PreviewPost()
-        {
-            return await Session.Query<PreviewPost>().Customize(x => x.WaitForNonStaleResults()).OrderBy(i => i.id).ToListAsync();
-        }
-
-        [HttpGet]
-        public async Task<Post> FullPost(int id)
+        public async Task<Post> GetPost(int id)
         {
             return await Session.Query<Post>().Where(i=>i.id == id).SingleOrDefaultAsync();
         }
 
+        [HttpGet]
+        public async Task<IList<Post>> GetAllPost()
+        {
+            return await Session.Query<Post>().OrderBy(i=> i.id).ToListAsync();
+        }
+
         [HttpPost]
-        public async Task<Post> CreateFullPost()
+        public async Task<Post> CreatePost()
         {
             var posts = await Session.Query<Post>().ToListAsync();
             
             var newId = posts.Max(i => i.id) + 1;
-
             var post = new Post { id = newId, type = "Post", content = postContent, title = "Post " + newId };
-            var postPreview = new PreviewPost { id = newId, type = "PreviewPost", content = previewPostContent, title = "Post " + newId };
-            
-            await Session.StoreAsync(post);
-            await  Session.StoreAsync(postPreview);  
+          
+            await Session.StoreAsync(post);          
             
             return post;   
         }
-        
-        [HttpPut]
-        public async Task<HttpResponseMessage> UpdatePostPreview(int id, [FromBody]Editable editable)
-        {
-            var post = await Session.Query<Post>().Where(x => x.id == id).SingleOrDefaultAsync();
 
-            post.content = editable.content;
-            await Session.StoreAsync(post);
+        [HttpPut]
+        public async Task<HttpResponseMessage> UpdatePost(int id, [FromBody]Post post)
+        {
+            var storedPost = await Session.Query<Post>().Where(x => x.id == id).SingleOrDefaultAsync();
+
+            storedPost.title = post.title;
+            storedPost.content = post.content;
+
+            await Session.StoreAsync(storedPost);
 
             return new HttpResponseMessage(HttpStatusCode.OK);
-        }       
-
+        }   
     }
 }

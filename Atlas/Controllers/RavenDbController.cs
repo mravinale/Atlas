@@ -48,10 +48,6 @@ namespace Atlas.Controllers
                 foreach (var preview in previews) session.Delete(preview);
                 session.SaveChanges();
 
-                var previewPosts = session.Query<PreviewPost>().Customize(x => x.WaitForNonStaleResults());
-                foreach (var post in previewPosts) session.Delete(post);
-                session.SaveChanges();
-
                 var posts = session.Query<Post>().Customize(x => x.WaitForNonStaleResults());
                 foreach (var post in posts) session.Delete(post);
                 session.SaveChanges();
@@ -60,10 +56,7 @@ namespace Atlas.Controllers
                 session.Store(new PreviewInfo { id = 2, type = "PreviewInfo", content = "<h2>Blog Post 2</h2>" + commonContent });
                 session.Store(new PreviewInfo { id = 3, type = "PreviewInfo", content = "<h2>Blog Post 3</h2>" + commonContent });
 
-                session.Store(new PreviewPost { id = 1, type = "PreviewPost", content = previewPostContent, title = "Post1" });
-                session.Store(new PreviewPost { id = 2, type = "PreviewPost", content = previewPostContent, title = "Post2" });
-                session.Store(new PreviewPost { id = 3, type = "PreviewPost", content = previewPostContent, title = "Post3" });
-
+               
                 session.Store(new Post { id = 1, type = "Post", content = postContent, title = "Post 1" });
                 session.Store(new Post { id = 2, type = "Post", content = postContent, title = "Post 2" });
                 session.Store(new Post { id = 3, type = "Post", content = postContent, title = "Post 3" });
