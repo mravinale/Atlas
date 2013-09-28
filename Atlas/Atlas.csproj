@@ -144,6 +144,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App\js\controllers\partials\navigator.js" />
     <Content Include="App\js\directives\angular-aloha.js" />
     <Content Include="App\js\controllers\singles\blogPage.js" />
     <Content Include="App\js\controllers\singles\blog.js" />
@@ -1883,7 +1884,6 @@
     <Folder Include="App\html\holders\" />
     <Folder Include="App\html\singles\" />
     <Folder Include="App\js\controllers\holders\" />
-    <Folder Include="App\js\controllers\partials\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

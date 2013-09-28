@@ -5,6 +5,8 @@ require.config({
         'angular': '/Scripts/angular/angular.min',
         'angular-ui': '/Scripts/angular/angular-ui.min',
         'angular-strap': '/Scripts/angular/angular-strap.min',
+        'angular-bootstrap': '/Scripts/angular/ui-bootstrap-0.6.0.min',
+        'angular-bootstrap-tpls': '/Scripts/angular/ui-bootstrap-tpls-0.6.0.min',
         'bootstrap': '/Scripts/boostrap/bootstrap.min',
         'modernizr': '/Scripts/jquery/modernizr-2.5.3',
         'cslider': '/Scripts/jquery/jquery.cslider',
@@ -16,6 +18,8 @@ require.config({
         'angular': { 'exports': 'angular' },
         'angular-ui': { deps: ['angular', 'cslider'] },
         'angular-strap': { deps: ['angular'] },
+        'angular-bootstrap': { deps: ['angular'] },
+        'angular-bootstrap-tpls': { deps: ['angular'] },
         'angular-aloha': { deps: ['jQuery','angular','aloha'] }
     },
     priority: ['jQuery', 'cslider', 'angular' ]
