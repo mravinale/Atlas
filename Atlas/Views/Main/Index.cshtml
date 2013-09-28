@@ -16,10 +16,10 @@
 
     </head>
 
-<body >
+<body ng-controller="navigatorController">
 
     <!-- Navigation -->
-    <div ng-controller="navigatorController" class="navbar navbar-fixed-top" bs-navbar>
+    <div class="navbar navbar-fixed-top" bs-navbar>
         <div class="navbar-inner">
             <div class="container">
                 <a class="brand" href="#/home">Atlas</a>
@@ -29,24 +29,24 @@
                     <li data-match-route="/about"><a href="#/about">About</a></li>
                 </ul>
                 <ul class="nav nav-pills pull-right">
-                    <button type="button" class="btn" ng-model="singleModel" btn-checkbox btn-checkbox-true="1" btn-checkbox-false="0">Edit</button>
+                    <button type="button" class="btn" ng-model="editEnable" btn-checkbox btn-checkbox-true="true" btn-checkbox-false="false">Edit</button>
                 </ul>
-               
+
             </div>
         </div>
     </div>
 
-   <!-- Content -->
+    <!-- Content -->
     <div class="container-fluid" id="main">
         <div class="row-fluid">
             <!-- pages -->
             <ng-view></ng-view>
         </div>
     </div>
-    
 
-    <script src="~/Scripts/require.js" data-main="App/js/main"></script> 
-    
+
+    <script src="~/Scripts/require.js" data-main="App/js/main"></script>
+
     <script>
         var Aloha = window.Aloha || (window.Aloha = {});
         Aloha.settings = {
@@ -70,10 +70,11 @@
             }
         };
 
-        
-</script>
- 
+
+    </script>
+
 
 
 </body>
+
 </html>

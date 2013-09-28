@@ -191,11 +191,16 @@ angular.module('aloha', []).directive('aloha', ['$location', '$compile', '$http'
 	    priority: -1000,
 	    replace: true,	    
         template: "<div></div>",
-		link: function ($scope, elem, attrs) {
-            
+        link: function ($scope, elem, attrs) {
+                      
 		    Aloha.ready(function () {
-		        
-		        $(elem).aloha();
+		         
+		        $scope.$watch('editEnable', function (isEnable) {
+		            if (isEnable)
+		                Aloha.jQuery(elem).aloha();
+		            else
+		                Aloha.jQuery(elem).mahalo();
+		        });
 
 		        Aloha.bind('aloha-smart-content-changed', function (jEvent, jData) {
  
@@ -210,7 +215,7 @@ angular.module('aloha', []).directive('aloha', ['$location', '$compile', '$http'
 		        });
 
                 $scope.$on('$destroy', function () {
-					$(elem).mahalo();
+                    Aloha.jQuery(elem).mahalo();
 				});
 		    });
 		    

@@ -1640,6 +1640,8 @@
     <Content Include="Scripts\angular\angular-ui.min.js" />
     <Content Include="Scripts\angular\angular.js" />
     <Content Include="Scripts\angular\angular.min.js" />
+    <Content Include="Scripts\angular\ui-bootstrap-0.6.0.min.js" />
+    <Content Include="Scripts\angular\ui-bootstrap-tpls-0.6.0.min.js" />
     <Content Include="Scripts\boostrap\bootstrap.js" />
     <Content Include="Scripts\boostrap\bootstrap.min.js" />
     <Content Include="Scripts\jquery\jquery-1.9.1.js" />

@@ -1,11 +1,6 @@
 define(['modules/mainApp', 'services/home'], function (mainApp) {
     mainApp.controller('homeController', function ($rootScope, $scope, homeService) {
 
-        $scope.posts;
-          
-
-        $rootScope.singleModel = 1;
-
         var getPreviewInfo = function () {
             homeService.getPreviewInfo().then(function (preview) {
                 $scope.preview1 = preview.data[0];
