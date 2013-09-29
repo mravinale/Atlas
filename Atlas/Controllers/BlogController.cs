@@ -51,6 +51,16 @@ namespace Atlas.Controllers
             await Session.StoreAsync(storedPost);
 
             return new HttpResponseMessage(HttpStatusCode.OK);
-        }   
+        }
+
+        [HttpDelete]
+        public async Task<HttpResponseMessage> DeletePost(int id)
+        {
+            var storedPost = await Session.Query<Post>().Where(x => x.id == id).SingleOrDefaultAsync();
+
+            Session.Delete(storedPost);
+
+            return new HttpResponseMessage(HttpStatusCode.OK);
+        }
     }
 }

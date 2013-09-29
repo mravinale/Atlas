@@ -11,7 +11,7 @@ define(['modules/mainApp', 'services/home'], function (mainApp) {
                 });
         };
 
-        $scope.$on('UpdatePreviewInfo', function (event, editable) {
+        var listener = $scope.$on('UpdatePreviewInfo', function (event, editable) {
 
             homeService.updatePreviewInfo(editable).then(function (posts) {
                 console.log(editable.content);
@@ -19,6 +19,10 @@ define(['modules/mainApp', 'services/home'], function (mainApp) {
                 console.log(error);
             });
             
+        });
+
+        $scope.$on("$destroy", function () {
+            listener();
         });
 
         $scope.init = function () {

@@ -19,6 +19,10 @@ define(['modules/mainApp'], function (mainApp) {
         this.createPost = function () {
             return $http.post(urlBase + 'CreatePost');
         };
+
+        this.deletePost = function (id) {
+            return $http.delete(urlBase + 'DeletePost/' + id);
+        };
         
     }]);
 

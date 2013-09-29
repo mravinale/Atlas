@@ -1,6 +1,6 @@
 define(['modules/mainApp', 'services/blog'], function (mainApp) {
     
-    mainApp.controller('blogPageController', function ($scope, blogService, $route) {
+    mainApp.controller('blogPageController', function ($scope, blogService, $route, $timeout) {
                 
         var getPost = function () {            
             blogService.getPost($route.current.params.id).then(function (post) {                   
@@ -10,7 +10,7 @@ define(['modules/mainApp', 'services/blog'], function (mainApp) {
                 });
         };
 
-        $scope.$on('UpdatePost', function (event, editable) {
+       var listener = $scope.$on('UpdatePost', function (event, editable) {
             editable.title = $scope.post.title;
              
             blogService.updatePost(editable).then(function (result) {
@@ -18,14 +18,16 @@ define(['modules/mainApp', 'services/blog'], function (mainApp) {
             }, function (error) {
                 console.log(error);
             });
+       });
 
+       
+        $scope.$on("$destroy", function () {
+            listener();
+            $timeout.cancel(timer);            
         });
-        
-        $scope.init = function () {
-            setInterval(function () { getPost(); }, 300);         
-        };
-
-        $scope.init();
+       
+        var timer = $timeout(getPost(), 600);
+       
     });
 
 });

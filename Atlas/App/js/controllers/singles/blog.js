@@ -5,16 +5,8 @@ define(['modules/mainApp'], function (mainApp) {
             blogService.getAllPost().then(function (previews) {
                 $scope.previewPosts = previews.data;
             }, function (error) {
-                console.log(error); // = 'Unable to load preview page data: ' + error.message;
+                console.log(error);
             });
-        };
-
-        $scope.createPost = function () {
-            blogService.createPost().then(function (response) {
-               $location.path("/blogPage/" + response.data.id);
-            }, function (error) {
-                console.log(error.data); // = 'Unable to load preview page data: ' + error.message;
-            });        
         };
 
         $scope.init = function () {
