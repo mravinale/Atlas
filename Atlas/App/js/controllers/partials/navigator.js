@@ -2,6 +2,12 @@ define(['modules/mainApp'], function (mainApp) {
     mainApp.controller('navigatorController', function ($rootScope, $scope, homeService, $route, $location, blogService) {
          
         $scope.editEnable = false;
+
+        $scope.slides = [];
+        $scope.slides.push({ text: 'cats!', image: 'http://getbootstrap.com/2.3.2/assets/img/examples/slide-01.jpg' });
+        $scope.slides.push({ text: 'cats!', image: 'http://getbootstrap.com/2.3.2/assets/img/examples/slide-02.jpg' });
+        $scope.slides.push({ text: 'cats!', image: 'http://getbootstrap.com/2.3.2/assets/img/examples/slide-03.jpg' });
+
       
         $scope.delete = function () {
             blogService.deletePost($route.current.params.id).then(function (response) {

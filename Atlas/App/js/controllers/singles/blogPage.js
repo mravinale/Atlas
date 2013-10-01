@@ -26,7 +26,7 @@ define(['modules/mainApp', 'services/blog'], function (mainApp) {
             $timeout.cancel(timer);            
         });
        
-        var timer = $timeout(getPost(), 600);
+        var timer = $timeout(getPost(), 1000);
        
     });
 

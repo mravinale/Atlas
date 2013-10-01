@@ -27,11 +27,11 @@ require.config({
 
 require(['jQuery', 'angular','routes/mainRoutes'], function ($, angular) {
     
-    angular.module('ui.config', ['ui']).value('ui.config', {
-        jq: {
-            cslider: { autoplay: true, bgincrement: 450 }
-        }
-    });   
+    //angular.module('ui.config', ['ui']).value('ui.config', {
+    //    jq: {
+    //        cslider: { autoplay: true, bgincrement: 450 }
+    //    }
+    //});   
 
     angular.bootstrap(document, ['mainApp']);
 });
