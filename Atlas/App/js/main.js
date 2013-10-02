@@ -1,12 +1,13 @@
-require.config({ 
+//http://plnkr.co/edit/Ep5l2CLM4npjVSDP3c4d?p=preview
+require.config({
     paths: {
         'jQuery': '/Scripts/jquery/jquery-1.9.1.min',
         'aloha': '/Scripts/aloha',
         'angular': '/Scripts/angular/angular.min',
         'angular-ui': '/Scripts/angular/angular-ui.min',
         'angular-strap': '/Scripts/angular/angular-strap.min',
-        'angular-bootstrap': '/Scripts/angular/ui-bootstrap-0.6.0.min',
-        'angular-bootstrap-tpls': '/Scripts/angular/ui-bootstrap-tpls-0.6.0.min',
+        'angular-bootstrap': '/Scripts/angular/ui-bootstrap-0.5.0.min',
+        'angular-bootstrap-tpls': '/Scripts/angular/ui-bootstrap-tpls-0.5.0.min',
         'bootstrap': '/Scripts/boostrap/bootstrap.min',
         'modernizr': '/Scripts/jquery/modernizr-2.5.3',
         'cslider': '/Scripts/jquery/jquery.cslider',

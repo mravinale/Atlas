@@ -9,15 +9,10 @@
                 <div class="entry" ng-repeat="post in previewPosts ">
                     <a href="#/blogPage/{{post.id}}">
                         <h2>{{post.title}}</h2>
-                    </a>
-                    <!--<small><em>Posted December 28, 2012</em></small>-->
+                    </a> 
                     <hr>
                     <div class="row-fluid">
-                        <!--<div class="span5">
-                            <a href="#/blogPage/{{post.id}}">
-                                <img alt="image" class="img-polaroid" max-width="600px" max-height="300px" src="http://quickimage.it/1200x400">
-                            </a>
-                        </div>-->
+                        
                         <div class="">
                             <div ng-bind-html-unsafe="post.content  | cut:true:500:'</p>'"></div>
                             <a href="#/blogPage/{{post.id}}" class="btn btn-primary">Read More</a>
@@ -27,14 +22,7 @@
               
             </div>
             <div class="span3">
-                <!--<div class="accordion" id="accordion2">
-                    <div class="accordion-group">
-                        <div class="accordion-heading">
-                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" ng-click="createPost()">Create new post</a>
-                        </div>
-                    </div>
-                    
-                </div>-->
+                
                 <h3>Text Widget</h3>
                 <hr class="halfed">
                 <p>Vivamus rutrum lorem vel puruscondimentum scelerisque. Vivamus viverra risus eu nibh tesque. Proin sed ipsum ipsum, sed placerat eros.</p>

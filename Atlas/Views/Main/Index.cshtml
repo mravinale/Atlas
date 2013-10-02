@@ -6,8 +6,7 @@
 
     <!-- Styles Includes -->
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
-    <link href="~/Content/bootstrap-responsive.css" rel="stylesheet" />
-
+    <link href="~/Content/bootstrap-responsive.css" rel="stylesheet" /> 
     <link href="~/Content/Site.css" rel="stylesheet" />
     <link href="~/Content/aloha/css/aloha.css" type="text/css" rel="stylesheet" />
 
@@ -30,6 +29,7 @@
                     <button ng-disabled="createButtonDisabled" type="button" class="btn" ng-click="create()">Create</button>
                     <button ng-disabled="editButtonDisabled" type="button" class="btn" ng-model="editEnable" btn-checkbox btn-checkbox-true="true" btn-checkbox-false="false">Edit</button>
                     <button ng-disabled="deleteButtonDisabled" type="button" class="btn" ng-click="delete()">Delete</button>
+                    <button type="button" class="btn" ng-click="showModal()" >modal</button>
                 </ul>
 
             </div>
@@ -43,6 +43,8 @@
             <ng-view></ng-view>
         </div>
     </div>
+
+   
 
 
     <script src="~/Scripts/require.js" data-main="App/js/main"></script>

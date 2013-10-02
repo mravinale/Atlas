@@ -1,13 +1,18 @@
+//define(['modules/mainApp'], function (mainApp) {
+   
+//});
+
 define(['modules/mainApp'], function (mainApp) {
-    mainApp.controller('navigatorController', function ($rootScope, $scope, homeService, $route, $location, blogService) {
+    mainApp.controller('dialogController', function ($rootScope, $scope, dialog) {
+        $scope.close = function (result) {
+            dialog.close(result);
+        };
+    });
+    
+    mainApp.controller('navigatorController', function ($rootScope, $q, $dialog, $scope, homeService, $route, $location, blogService) {
          
         $scope.editEnable = false;
-
-        $scope.slides = [];
-        $scope.slides.push({ text: 'cats!', image: 'http://getbootstrap.com/2.3.2/assets/img/examples/slide-01.jpg' });
-        $scope.slides.push({ text: 'cats!', image: 'http://getbootstrap.com/2.3.2/assets/img/examples/slide-02.jpg' });
-        $scope.slides.push({ text: 'cats!', image: 'http://getbootstrap.com/2.3.2/assets/img/examples/slide-03.jpg' });
-
+         
       
         $scope.delete = function () {
             blogService.deletePost($route.current.params.id).then(function (response) {
@@ -44,9 +49,61 @@ define(['modules/mainApp'], function (mainApp) {
             }
              
         });
+         
 
-    });   
+        //var modalOptions = {
+        //    closeButtonText: 'Cancel',
+        //    actionButtonText: 'Delete Customer',
+        //    headerText: 'Delete ?',
+        //    bodyText: 'Are you sure you want to delete this customer?'
+        //};
+
+
+        $scope.showModal = function () {
+
+            var d = $dialog.dialog({
+                backdrop: true,
+                keyboard: true,
+                dialogFade: true,
+                backdropClick: false,
+                templateUrl: '/App/html/partials/login.html',
+                controller: 'dialogController',
+                resolve: {
+                    $parentScope: function () {
+                        return $scope;
+                    }
+                }
+            });
+            d.open().then(function (result) {
+                if (result) {
+                    alert('dialog closed with result: ' + result);
+                }
+            });
+             
+
+            //var modalPromise = $modal({
+            //    template: '/App/html/partials/login.html',
+            //    persist: true,
+            //    show: false,
+            //    backdrop: 'static',
+            //    scope: $scope
+            //});
+            //$q.when(modalPromise).then(function (modal) {
+            //    console.log("go");
+            //    console.log(modal);
+            //    //modal.modal("show");
+            //});
+
+            //modalService.showModal({}, modalOptions).then(function (result) {
+            //    alert("from modal");
+            //});
+        }
+       
+    });
+
+   
 
 });
+
 
 
