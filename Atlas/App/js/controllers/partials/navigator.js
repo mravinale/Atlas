@@ -1,17 +1,26 @@
-//define(['modules/mainApp'], function (mainApp) {
-   
-//});
 
 define(['modules/mainApp'], function (mainApp) {
+
     mainApp.controller('dialogController', function ($rootScope, $scope, dialog) {
+
         $scope.close = function (result) {
             dialog.close(result);
         };
+
+        $scope.login = function (result) {
+            if ($scope.userName == "admin" && $scope.password == "admin"){
+                $rootScope.isAuthenticated = true;
+                dialog.close(result);
+            }
+        };
+
     });
     
     mainApp.controller('navigatorController', function ($rootScope, $q, $dialog, $scope, homeService, $route, $location, blogService) {
          
         $scope.editEnable = false;
+
+        $rootScope.isAuthenticated = false;
          
       
         $scope.delete = function () {
@@ -50,18 +59,9 @@ define(['modules/mainApp'], function (mainApp) {
              
         });
          
+        $scope.showLogin = function () {
 
-        //var modalOptions = {
-        //    closeButtonText: 'Cancel',
-        //    actionButtonText: 'Delete Customer',
-        //    headerText: 'Delete ?',
-        //    bodyText: 'Are you sure you want to delete this customer?'
-        //};
-
-
-        $scope.showModal = function () {
-
-            var d = $dialog.dialog({
+            var login = $dialog.dialog({
                 backdrop: true,
                 keyboard: true,
                 dialogFade: true,
@@ -74,29 +74,11 @@ define(['modules/mainApp'], function (mainApp) {
                     }
                 }
             });
-            d.open().then(function (result) {
-                if (result) {
-                    alert('dialog closed with result: ' + result);
-                }
+
+            login.open().then(function (result) {
+                console.log(result);
             });
-             
 
-            //var modalPromise = $modal({
-            //    template: '/App/html/partials/login.html',
-            //    persist: true,
-            //    show: false,
-            //    backdrop: 'static',
-            //    scope: $scope
-            //});
-            //$q.when(modalPromise).then(function (modal) {
-            //    console.log("go");
-            //    console.log(modal);
-            //    //modal.modal("show");
-            //});
-
-            //modalService.showModal({}, modalOptions).then(function (result) {
-            //    alert("from modal");
-            //});
         }
        
     });

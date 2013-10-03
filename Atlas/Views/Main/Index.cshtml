@@ -26,10 +26,11 @@
                     <li data-match-route="/about"><a href="#/about">About</a></li>
                 </ul>
                 <ul class="nav nav-pills pull-right">
-                    <button ng-disabled="createButtonDisabled" type="button" class="btn" ng-click="create()">Create</button>
-                    <button ng-disabled="editButtonDisabled" type="button" class="btn" ng-model="editEnable" btn-checkbox btn-checkbox-true="true" btn-checkbox-false="false">Edit</button>
-                    <button ng-disabled="deleteButtonDisabled" type="button" class="btn" ng-click="delete()">Delete</button>
-                    <button type="button" class="btn" ng-click="showModal()" >modal</button>
+                    <button ng-show="isAuthenticated" ng-disabled="createButtonDisabled" type="button" class="btn" ng-click="create()">Create</button>
+                    <button ng-show="isAuthenticated" ng-disabled="editButtonDisabled" type="button" class="btn" ng-model="editEnable" btn-checkbox btn-checkbox-true="true" btn-checkbox-false="false">Edit</button>
+                    <button ng-show="isAuthenticated" ng-disabled="deleteButtonDisabled" type="button" class="btn" ng-click="delete()">Delete</button>
+                    <button ng-show="!isAuthenticated" type="button" class="btn" ng-click="showLogin()">login</button>
+                    <button ng-show="isAuthenticated" type="button" class="btn" ng-click="isAuthenticated=false">logout</button>
                 </ul>
 
             </div>
