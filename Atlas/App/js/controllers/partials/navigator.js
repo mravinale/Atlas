@@ -38,6 +38,7 @@ define(['modules/mainApp'], function (mainApp) {
                 console.log(error.data); 
             });
         };
+         
 
         $scope.$on('$routeChangeSuccess', function (scope, next, current) {
            

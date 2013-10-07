@@ -21,11 +21,16 @@
             <div class="container">
                 <a class="brand" href="#/home">Atlas</a>
                 <ul class="nav">
-                    <li data-match-route="/home"><a href="#/home">Home</a></li>
+                    <li data-match-route="/home.*"><a href="#/home">Home</a></li>
+                    <li ng-class="{active: isFeature1}"><a href="#/home#feature1">feature1</a></li>
+                    <li ng-class="{active: isFeature2}"><a href="#/home#feature2">feature2</a></li>
+                    <li ng-class="{active: isFeature3}"><a href="#/home#feature3">feature3</a></li>
                     <li data-match-route="/blog"><a href="#/blog">Blog</a></li>
                     <li data-match-route="/about"><a href="#/about">About</a></li>
+                   
+                 
                 </ul>
-                <ul class="nav nav-pills pull-right">
+                <ul class="nav nav-pills pull-right"> 
                     <button ng-show="isAuthenticated" ng-disabled="createButtonDisabled" type="button" class="btn" ng-click="create()">Create</button>
                     <button ng-show="isAuthenticated" ng-disabled="editButtonDisabled" type="button" class="btn" ng-model="editEnable" btn-checkbox btn-checkbox-true="true" btn-checkbox-false="false">Edit</button>
                     <button ng-show="isAuthenticated" ng-disabled="deleteButtonDisabled" type="button" class="btn" ng-click="delete()">Delete</button>

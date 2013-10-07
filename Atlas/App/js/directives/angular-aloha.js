@@ -223,3 +223,5 @@ angular.module('aloha', []).directive('aloha', ['$location', '$compile', '$http'
 		}
 	};
 }])
+
+ 
