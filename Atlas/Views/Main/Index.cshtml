@@ -21,13 +21,12 @@
             <div class="container">
                 <a class="brand" href="#/home">Atlas</a>
                 <ul class="nav">
-                    <li data-match-route="/home.*"><a href="#/home">Home</a></li>
-                    <li ng-class="{active: isFeature1}"><a href="#/home#feature1">feature1</a></li>
-                    <li ng-class="{active: isFeature2}"><a href="#/home#feature2">feature2</a></li>
-                    <li ng-class="{active: isFeature3}"><a href="#/home#feature3">feature3</a></li>
+                    <li ng-class="{active: isMainSelected}" smooth-scroll target="main"><a href="#/home#main">Main</a></li>
+                    <li ng-class="{active: isFeature1Selected}" smooth-scroll target="feature1"><a href="#/home#feature1">feature1</a></li>
+                    <li ng-class="{active: isFeature2Selected}" smooth-scroll target="feature2"><a href="#/home#feature2">feature2</a></li>
+                    <li ng-class="{active: isFeature3Selected}" smooth-scroll target="feature3"><a href="#/home#feature3">feature3</a></li>
                     <li data-match-route="/blog"><a href="#/blog">Blog</a></li>
-                    <li data-match-route="/about"><a href="#/about">About</a></li>
-                   
+                    <li data-match-route="/about"><a href="#/about">About</a></li>                  
                  
                 </ul>
                 <ul class="nav nav-pills pull-right"> 
