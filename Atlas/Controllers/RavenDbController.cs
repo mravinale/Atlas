@@ -52,9 +52,9 @@ namespace Atlas.Controllers
                 foreach (var post in posts) session.Delete(post);
                 session.SaveChanges();
 
-                session.Store(new PreviewInfo { id=1, type = "PreviewInfo", content = "<h2>Blog Post 1</h2>" + commonContent });
-                session.Store(new PreviewInfo { id=2, type = "PreviewInfo", content = "<h2>Blog Post 2</h2>" + commonContent });
-                session.Store(new PreviewInfo { id=3, type = "PreviewInfo", content = "<h2>Blog Post 3</h2>" + commonContent });
+                session.Store(new PreviewInfo { id = 1, type = "PreviewInfo", content = "<h2>Blog Post 1</h2>" + commonContent });
+                session.Store(new PreviewInfo { id = 2, type = "PreviewInfo", content = "<h2>Blog Post 2</h2>" + commonContent });
+                session.Store(new PreviewInfo { id = 3, type = "PreviewInfo", content = "<h2>Blog Post 3</h2>" + commonContent });
 
                
                 session.Store(new Post {id=1, type = "Post", content = postContent, title = "Post 1" });
