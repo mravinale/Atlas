@@ -32,36 +32,44 @@ namespace Atlas.Controllers
 
         private static readonly Lazy<IDocumentStore> LazyDocStore = new Lazy<IDocumentStore>(() =>
         {
+
+            var ravenDbUrl = WebConfigurationManager.AppSettings["RavenDbUrl"];
+            var resetDb = WebConfigurationManager.AppSettings["ResetDb"] == "true";
+
             var docStore = new DocumentStore
             {
-                Url = "http://localhost:8080",
+                Url = ravenDbUrl,
                 DefaultDatabase = "Atlas"
             };
 
             docStore.Initialize();
 
-           
-
-            using (var session = docStore.OpenSession())
+            if (resetDb)
             {
-                var previews = session.Query<PreviewInfo>().Customize(x => x.WaitForNonStaleResults());
-                foreach (var preview in previews) session.Delete(preview);
-                session.SaveChanges();
+                using (var session = docStore.OpenSession())
+                {
+                    var previews = session.Query<PreviewInfo>().Customize(x => x.WaitForNonStaleResults());
+                    foreach (var preview in previews) session.Delete(preview);
+                    session.SaveChanges();
 
-                var posts = session.Query<Post>().Customize(x => x.WaitForNonStaleResults());
-                foreach (var post in posts) session.Delete(post);
-                session.SaveChanges();
+                    var posts = session.Query<Post>().Customize(x => x.WaitForNonStaleResults());
+                    foreach (var post in posts) session.Delete(post);
+                    session.SaveChanges();
 
-                session.Store(new PreviewInfo { id = 1, type = "PreviewInfo", content = "<h2>Blog Post 1</h2>" + commonContent });
-                session.Store(new PreviewInfo { id = 2, type = "PreviewInfo", content = "<h2>Blog Post 2</h2>" + commonContent });
-                session.Store(new PreviewInfo { id = 3, type = "PreviewInfo", content = "<h2>Blog Post 3</h2>" + commonContent });
+                    session.Store(new PreviewInfo
+                                      {id = 1, type = "PreviewInfo", content = "<h2>Blog Post 1</h2>" + commonContent});
+                    session.Store(new PreviewInfo
+                                      {id = 2, type = "PreviewInfo", content = "<h2>Blog Post 2</h2>" + commonContent});
+                    session.Store(new PreviewInfo
+                                      {id = 3, type = "PreviewInfo", content = "<h2>Blog Post 3</h2>" + commonContent});
 
-               
-                session.Store(new Post {id=1, type = "Post", content = postContent, title = "Post 1" });
-                session.Store(new Post {id=2, type = "Post", content = postContent, title = "Post 2" });
-                session.Store(new Post {id=3, type = "Post", content = postContent, title = "Post 3" });
 
-                session.SaveChanges();
+                    session.Store(new Post {id = 1, type = "Post", content = postContent, title = "Post 1"});
+                    session.Store(new Post {id = 2, type = "Post", content = postContent, title = "Post 2"});
+                    session.Store(new Post {id = 3, type = "Post", content = postContent, title = "Post 3"});
+
+                    session.SaveChanges();
+                }
             }
 
             return docStore;
