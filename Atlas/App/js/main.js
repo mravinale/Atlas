@@ -6,7 +6,6 @@ require.config({
         'angular': '/Scripts/angular/angular',
         'angular-ui': '/Scripts/angular/angular-ui.min',
         'angular-strap': '/Scripts/angular/angular-strap.min',
-       // 'angular-bootstrap': '/Scripts/angular/ui-bootstrap-0.5.0.min',
         'angular-bootstrap-tpls': '/Scripts/angular/ui-bootstrap-tpls-0.5.0.min',
         'bootstrap': '/Scripts/boostrap/bootstrap.min',
         'modernizr': '/Scripts/jquery/modernizr-2.5.3',
@@ -19,7 +18,6 @@ require.config({
         'angular': { 'exports': 'angular' },
         'angular-ui': { deps: ['angular'] },
         'angular-strap': { deps: ['angular'] },
-       // 'angular-bootstrap': { deps: ['angular'] },
         'angular-bootstrap-tpls': { deps: ['angular'] },
         'angular-aloha': { deps: ['jQuery','angular','aloha'] }
     },

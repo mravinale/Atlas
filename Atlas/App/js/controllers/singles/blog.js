@@ -2,8 +2,8 @@ define(['modules/mainApp'], function (mainApp) {
     mainApp.controller('blogController', function ($scope, $location, blogService) {
          
         var getAllPost = function () {
-            blogService.getAllPost().then(function (previews) {
-                $scope.previewPosts = previews.data;
+            blogService.getAllPost().then(function (result) {
+                $scope.previewPosts = result.data;
             }, function (error) {
                 console.log(error);
             });

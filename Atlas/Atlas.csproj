@@ -39,21 +39,28 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Castle.Core">
+      <HintPath>..\packages\Castle.Core.3.2.1\lib\net45\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Windsor">
+      <HintPath>..\packages\Castle.Windsor.3.2.1\lib\net45\Castle.Windsor.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.0.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.0.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Newtonsoft.Json.4.5.11\lib\net40\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="Raven.Abstractions">
-      <HintPath>..\packages\RavenDB.Client.2.5.2700\lib\net45\Raven.Abstractions.dll</HintPath>
-    </Reference>
-    <Reference Include="Raven.Client.Lightweight">
-      <HintPath>..\packages\RavenDB.Client.2.5.2700\lib\net45\Raven.Client.Lightweight.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Services.Client" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -66,9 +73,6 @@
     <Reference Include="System.Web.Routing" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
-    <Reference Include="EntityFramework">
-      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
@@ -130,17 +134,22 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Bootstrapper.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MainController.cs" />
     <Compile Include="Controllers\BlogController.cs" />
-    <Compile Include="Controllers\RavenDbController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\PreviewPost.cs" />
-    <Compile Include="Models\PreviewInfo.cs" />
-    <Compile Include="Models\Editable.cs" />
+    <Compile Include="Infrastructure\EF\IDbContext.cs" />
+    <Compile Include="Infrastructure\EF\AtlasContext.cs" />
+    <Compile Include="Infrastructure\Helper\DbData.cs" />
+    <Compile Include="Infrastructure\Ioc\WebWindsorInstaller.cs" />
+    <Compile Include="Infrastructure\Ioc\WindsorDependencyResolver.cs" />
+    <Compile Include="Infrastructure\Ioc\WindsorDependencyScope.cs" />
     <Compile Include="Models\Post.cs" />
+    <Compile Include="Models\Editable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -154,9 +163,9 @@
     <Content Include="App\js\controllers\singles\about.js" />
     <Content Include="App\js\modules\mainApp.js" />
     <Content Include="App\js\main.js" />
-    <Content Include="App\html\partials\blog.html" />
-    <Content Include="App\html\partials\blogPage.html" />
-    <Content Include="App\html\partials\home.html" />
+    <Content Include="App\html\singles\blog.html" />
+    <Content Include="App\html\singles\blogPage.html" />
+    <Content Include="App\html\singles\home.html" />
     <Content Include="App\js\routes\mainRoutes.js" />
     <Content Include="App\js\services\blog.js" />
     <Content Include="App\js\services\home.js" />
@@ -1645,11 +1654,12 @@
     <Content Include="Scripts\jquery\jquery.cslider.js" />
     <Content Include="Scripts\jquery\modernizr-2.5.3.js" />
     <Content Include="Scripts\require.js" />
-    <Content Include="App\html\partials\about.html" />
+    <Content Include="App\html\singles\about.html" />
     <Content Include="Scripts\vendor\jquery-1.7.2.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -1674,7 +1684,6 @@
   <ItemGroup>
     <Folder Include="App\html\directives\" />
     <Folder Include="App\html\holders\" />
-    <Folder Include="App\html\singles\" />
     <Folder Include="App\js\controllers\holders\" />
   </ItemGroup>
   <ItemGroup>

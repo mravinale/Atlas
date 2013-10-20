@@ -1,37 +1,38 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Data.Entity;
 using System.Linq;
+using Atlas.Infrastructure;
+using Atlas.Infrastructure.EF;
+using Atlas.Models;
+using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
-using System.Web.Http;
-using Atlas.Models;
 using System.Threading.Tasks;
-using Raven.Client;
-using Raven.Client.Document;
-using Raven.Client.Linq;
-using System.Linq;
+using System.Web.Http;
 
 namespace Atlas.Controllers
 {
-    public class HomeController : RavenDbController
+    public class HomeController : BaseController
     {
+        public HomeController(IDbContext context) : base(context) { }
+        
         [HttpGet]
-        public async Task<IList<PreviewInfo>> PreviewInfo()
+        public async Task<IList<Editable>> PreviewInfo()
         {
-            return await Session.Query<PreviewInfo>().Customize(x => x.WaitForNonStaleResults()).OrderBy(i => i.id).ToListAsync();
+            return await context.Entity<Editable>().Where(i => i.type == "PreviewInfo").OrderBy(i => i.id).ToListAsync();
         }
 
         [HttpPut]
         public async Task<HttpResponseMessage> UpdatePreviewInfo(int id, [FromBody]Editable editable)
         {
-            var result = await Session.Query<PreviewInfo>().Where(x => x.id == id).ToListAsync();
+            var result = await context.Entity<Editable>().Where(x => x.id == id).FirstOrDefaultAsync();
 
-            result.FirstOrDefault().content = editable.content;
-            await Session.StoreAsync(result.FirstOrDefault());
-                      
+            result.content = editable.content;
+
+            context.Entry(result).State = EntityState.Modified;
+            context.SaveChangesAsync();
 
             return new HttpResponseMessage(HttpStatusCode.OK);
-        }       
+        }
 
     }
      
