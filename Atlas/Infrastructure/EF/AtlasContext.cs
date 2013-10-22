@@ -28,9 +28,15 @@ namespace Atlas.Infrastructure.EF
             context.Database.Create();
 
             context.Entity<Editable>().AddRange(new List<Editable>(new[]{
-                                           new Editable { id = 4, type = "PreviewInfo", content = "<h2>Blog Post 1</h2>" + InitData.CommonContent },
-                                           new Editable { id = 5, type = "PreviewInfo", content = "<h2>Blog Post 2</h2>" + InitData.CommonContent},
-                                           new Editable { id = 6, type = "PreviewInfo", content = "<h2>Blog Post 3</h2>" + InitData.CommonContent  }
+                                           new Editable { id = 1, type = "PreviewInfo", content = "<h2>Blog Post 1</h2>" + InitData.CommonContent },
+                                           new Editable { id = 2, type = "PreviewInfo", content = "<h2>Blog Post 2</h2>" + InitData.CommonContent},
+                                           new Editable { id = 3, type = "PreviewInfo", content = "<h2>Blog Post 3</h2>" + InitData.CommonContent  }
+                                      }));
+
+            context.Entity<Editable>().AddRange(new List<Editable>(new[]{
+                                           new Editable { id = 4, type = "Featurette", content = InitData.FeaturetteContent },
+                                           new Editable { id = 5, type = "Featurette", content = InitData.FeaturetteContent },
+                                           new Editable { id = 6, type = "Featurette", content = InitData.FeaturetteContent }
                                       }));
 
             context.Entity<Post>().AddRange(new List<Post>(new[]{

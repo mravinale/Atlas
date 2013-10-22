@@ -18,6 +18,7 @@ define(['modules/mainApp', 'services/blog'], function (mainApp) {
             }, function (error) {
                 console.log(error);
             });
+            
         });
 
 

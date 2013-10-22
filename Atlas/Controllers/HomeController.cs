@@ -29,7 +29,26 @@ namespace Atlas.Controllers
             result.content = editable.content;
 
             context.Entry(result).State = EntityState.Modified;
-            context.SaveChangesAsync();
+            context.SaveChanges();
+
+            return new HttpResponseMessage(HttpStatusCode.OK);
+        }
+
+        [HttpGet]
+        public async Task<IList<Editable>> Featurette()
+        {
+            return await context.Entity<Editable>().Where(i => i.type == "Featurette").OrderBy(i => i.id).ToListAsync();
+        }
+
+        [HttpPut]
+        public async Task<HttpResponseMessage> UpdateFeaturettes(int id, [FromBody]Editable editable)
+        {
+            var result = await context.Entity<Editable>().Where(x => x.id == id).FirstOrDefaultAsync();
+
+            result.content = editable.content;
+
+            context.Entry(result).State = EntityState.Modified;
+            context.SaveChanges();
 
             return new HttpResponseMessage(HttpStatusCode.OK);
         }

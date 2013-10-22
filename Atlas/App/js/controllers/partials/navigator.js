@@ -20,8 +20,7 @@ define(['modules/mainApp'], function (mainApp) {
          
         $scope.editEnable = false;
 
-        $rootScope.isAuthenticated = false;
-         
+        $rootScope.isAuthenticated = true;
       
         $scope.delete = function () {
             blogService.deletePost($route.current.params.id).then(function (response) {
@@ -59,7 +58,7 @@ define(['modules/mainApp'], function (mainApp) {
             }
              
         });
-         
+
         $scope.showLogin = function () {
 
             var login = $dialog.dialog({
@@ -80,7 +79,7 @@ define(['modules/mainApp'], function (mainApp) {
                 console.log(result);
             });
 
-        }
+        };
        
     });
 

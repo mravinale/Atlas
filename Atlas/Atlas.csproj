@@ -1656,7 +1656,9 @@
     <Content Include="Scripts\require.js" />
     <Content Include="App\html\singles\about.html" />
     <Content Include="Scripts\vendor\jquery-1.7.2.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
       <SubType>Designer</SubType>
