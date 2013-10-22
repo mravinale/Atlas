@@ -20,7 +20,7 @@ define(['modules/mainApp'], function (mainApp) {
          
         $scope.editEnable = false;
 
-        $rootScope.isAuthenticated = true;
+        $rootScope.isAuthenticated = false;
       
         $scope.delete = function () {
             blogService.deletePost($route.current.params.id).then(function (response) {

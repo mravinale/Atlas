@@ -41,7 +41,7 @@ namespace Atlas.Controllers
         }
 
         [HttpPut]
-        public async Task<HttpResponseMessage> UpdateFeaturettes(int id, [FromBody]Editable editable)
+        public async Task<HttpResponseMessage> UpdateFeaturette(int id, [FromBody]Editable editable)
         {
             var result = await context.Entity<Editable>().Where(x => x.id == id).FirstOrDefaultAsync();
 
