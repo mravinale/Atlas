@@ -1382,6 +1382,12 @@
     <Content Include="Content\jquery.parallax.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Images\featurette1.jpe" />
+    <Content Include="Images\featurette2.jpe" />
+    <Content Include="Images\featurette3.jpe" />
+    <Content Include="Images\marketing1.jpe" />
+    <Content Include="Images\marketing2.jpe" />
+    <Content Include="Images\marketing3.jpe" />
     <Content Include="Scripts\aloha\abbr\package.json" />
     <Content Include="Scripts\aloha\align\LICENSE" />
     <Content Include="Scripts\aloha\align\package.json" />
@@ -1647,6 +1653,7 @@
     <Content Include="Scripts\angular\ui-bootstrap-tpls-0.5.0.min.js" />
     <Content Include="Scripts\boostrap\bootstrap.js" />
     <Content Include="Scripts\boostrap\bootstrap.min.js" />
+    <Content Include="Scripts\holder.js" />
     <Content Include="Scripts\jquery\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery\jquery-1.9.1.min.js" />
     <Content Include="Scripts\jquery\jquery-ui-1.8.20.js" />
@@ -1670,16 +1677,6 @@
     <Content Include="Images\accent.png" />
     <Content Include="Images\bullet.png" />
     <Content Include="Images\heroAccent.png" />
-    <Content Include="Images\orderedList0.png" />
-    <Content Include="Images\orderedList1.png" />
-    <Content Include="Images\orderedList2.png" />
-    <Content Include="Images\orderedList3.png" />
-    <Content Include="Images\orderedList4.png" />
-    <Content Include="Images\orderedList5.png" />
-    <Content Include="Images\orderedList6.png" />
-    <Content Include="Images\orderedList7.png" />
-    <Content Include="Images\orderedList8.png" />
-    <Content Include="Images\orderedList9.png" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\Main\Index.cshtml" />
   </ItemGroup>

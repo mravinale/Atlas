@@ -2,15 +2,7 @@
 {
     public class InitData
     { 
-        public static string CommonContent
-        {
-            get
-            {
-                return "<p >Suspendisse potenti. Donec egestas metus quis mauris ullamcorper eu consequat enim vulputate. Duis dictum ornare ante at accumsan. Mauris ornare sodales pretium.</p>" +
-                    "<p><a class='btn' href='/Blog'>Model details &raquo;</a></p> ";
-            }
-        }
-
+        
         public static string PostContent
         {
             get
@@ -20,14 +12,19 @@
             }
         }
 
-        public static string FeaturetteContent
+        public static string GetMarketingContent(string urlImage)
         {
-            get
-            {
-                return "<img class='featurette-image pull-left' src='http://getbootstrap.com/2.3.2/assets/img/examples/browser-icon-firefox.png'>" +
-                    "<h2 class='featurette-heading'>Vestibulum id ligula porta felis. <span class='muted'>porta felis euismod.</span></h2>" +
-                    "<p class='lead'>Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>";
-            }
+            return "<img class='img-circle' ng-src='" + urlImage + "'>" +
+                      "<h2>Heading</h2>" +
+                      "<p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</p>" +
+                      "<p><a class='btn' href='#'>View details &raquo;</a></p>";
+        }
+
+        public static string GetFeaturetteContent(string urlImage, string cssClass)
+        {
+            return "<img class='featurette-image " + cssClass + "' src='" + urlImage + "'>" +
+                   "<h2 class='featurette-heading'>Vestibulum id ligula porta felis. <span class='muted'>porta felis euismod.</span></h2>" +
+                   "<p class='lead'>Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>";
         }
     }     
      

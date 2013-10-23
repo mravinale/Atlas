@@ -9,13 +9,14 @@ require.config({
         'angular-bootstrap-tpls': '/Scripts/angular/ui-bootstrap-tpls-0.5.0.min',
         'bootstrap': '/Scripts/boostrap/bootstrap.min',
         'modernizr': '/Scripts/jquery/modernizr-2.5.3',
-       // 'cslider': '/Scripts/jquery/jquery.cslider',
+        'holder':'/Scripts/holder',
         'angular-aloha': '/App/js/directives/angular-aloha'
     },
     baseUrl: 'app/js',
     shim: {
         'jQuery': { 'exports': 'jQuery' },
         'angular': { 'exports': 'angular' },
+        'holder': { 'exports': 'holder' },
         'angular-ui': { deps: ['angular'] },
         'angular-strap': { deps: ['angular'] },
         'angular-bootstrap-tpls': { deps: ['angular'] },

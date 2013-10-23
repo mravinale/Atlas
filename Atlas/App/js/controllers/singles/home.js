@@ -1,4 +1,4 @@
-define(['modules/mainApp', 'services/home'], function (mainApp) {
+define(['modules/mainApp', 'holder', 'services/home'], function (mainApp) {
     mainApp.controller('homeController', function ($rootScope, $scope, homeService) {
         
         $scope.slides = [];
