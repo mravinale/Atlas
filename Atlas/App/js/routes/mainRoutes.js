@@ -14,6 +14,8 @@ define(['modules/mainApp', 'controllers/partials/navigator', 'controllers/single
 
     mainApp.run(function ($rootScope, $location, $anchorScroll, $routeParams) {
 
+        $rootScope.isAuthenticated = false;
+
         //when the route is changed scroll to the proper element.
         $rootScope.$on('$routeChangeSuccess', function (newRoute, oldRoute) {
            
