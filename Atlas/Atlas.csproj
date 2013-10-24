@@ -1684,6 +1684,7 @@
     <Folder Include="App\html\directives\" />
     <Folder Include="App\html\holders\" />
     <Folder Include="App\js\controllers\holders\" />
+    <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
