@@ -8,6 +8,7 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using Atlas.Infrastructure.EF;
+using Atlas.Migrations;
 using Castle.Windsor;
 
 namespace Atlas
@@ -25,7 +26,9 @@ namespace Atlas
         {
             container = Bootstrapper.InitializeContainer();
 
-            Database.SetInitializer(new AtlasContextCustomInitializer());
+            //Database.SetInitializer(new AtlasContextCustomInitializer());
+
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<AtlasContext, Configuration>());
 
             AreaRegistration.RegisterAllAreas();
             WebApiConfig.Register(GlobalConfiguration.Configuration);
