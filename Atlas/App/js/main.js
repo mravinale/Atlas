@@ -7,7 +7,7 @@ require.config({
         'angular-ui': '/Scripts/angular/angular-ui.min',
         'angular-strap': '/Scripts/angular/angular-strap.min',
         'angular-bootstrap-tpls': '/Scripts/angular/ui-bootstrap-tpls-0.5.0.min',
-        'bootstrap': '/Scripts/boostrap/bootstrap.min',
+        'bootstrap': '/Scripts/boostrap/bootstrap',
         'modernizr': '/Scripts/jquery/modernizr-2.5.3',
         'holder':'/Scripts/holder',
         'angular-aloha': '/App/js/directives/angular-aloha'

@@ -1,15 +1,12 @@
 using System.Collections.Generic;
+using System.Data.Entity.Migrations;
 using Atlas.Infrastructure.Helper;
 using Atlas.Models;
 
 namespace Atlas.Migrations
-{
-    using System;
-    using System.Data.Entity;
-    using System.Data.Entity.Migrations;
-    using System.Linq;
+{ 
 
-    internal sealed class Configuration : DbMigrationsConfiguration<Atlas.Infrastructure.EF.AtlasContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<Infrastructure.EF.AtlasContext>
     {
         public Configuration()
         {
@@ -18,8 +15,11 @@ namespace Atlas.Migrations
             ContextKey = "Atlas.Infrastructure.EF.AtlasContext";
         }
 
-        protected override void Seed(Atlas.Infrastructure.EF.AtlasContext context)
+        protected override void Seed(Infrastructure.EF.AtlasContext context)
         {
+            context.Database.ExecuteSqlCommand("IF (object_id('Posts','U') is not null) TRUNCATE TABLE [Posts]");
+            context.Database.ExecuteSqlCommand("IF (object_id('Editables','U') is not null) TRUNCATE TABLE [Editables]"); 
+
             context.Entity<Editable>().AddRange(new List<Editable>(new[]{
                                            new Editable { id = 1, type = "PreviewInfo", content = InitData.GetMarketingContent("Images/marketing1.jpe") },
                                            new Editable { id = 2, type = "PreviewInfo", content = InitData.GetMarketingContent("Images/marketing2.jpe") },
@@ -38,6 +38,7 @@ namespace Atlas.Migrations
                                            new Post { id = 3, type = "Post", content = InitData.PostContent, title = "Post 3" },
                                       }));
 
+            context.SaveChanges();
         }
     }
 }
