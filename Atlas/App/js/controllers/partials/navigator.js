@@ -41,6 +41,8 @@ define(['modules/mainApp'], function (mainApp) {
 
         $scope.$on('$routeChangeSuccess', function (scope, next, current) {
            
+            if (next.$$route == undefined) return;
+
             if (next.$$route.controller == 'blogPageController') {
                 $scope.createButtonDisabled = true;
                 $scope.editButtonDisabled = false;

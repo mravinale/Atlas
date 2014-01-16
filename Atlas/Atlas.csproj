@@ -180,7 +180,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App\html\partials\login.html" />
-    <Content Include="App\js\services\modalService.js" />
     <Content Include="App\js\controllers\partials\navigator.js" />
     <Content Include="App\js\directives\angular-aloha.js" />
     <Content Include="App\js\controllers\singles\blogPage.js" />
@@ -276,6 +275,7 @@
     <Content Include="Content\aloha\plugins\common\horizontalruler\nls\zh-hans\i18n.js" />
     <Content Include="Content\aloha\plugins\common\image\css\image.css" />
     <Content Include="Content\aloha\plugins\common\image\demo\crop.html" />
+    <Content Include="Content\aloha\plugins\common\image\demo\crop.php" />
     <Content Include="Content\aloha\plugins\common\image\demo\cropnresize.jpg" />
     <Content Include="Content\aloha\plugins\common\image\demo\index.html" />
     <Content Include="Content\aloha\plugins\common\image\img\blank.jpg" />
@@ -433,6 +433,7 @@
     <Content Include="Content\aloha\plugins\extra\comments\img\textbox.png" />
     <Content Include="Content\aloha\plugins\extra\comments\lib\comments-plugin.js" />
     <Content Include="Content\aloha\plugins\extra\comments\lib\comments.css" />
+    <Content Include="Content\aloha\plugins\extra\draganddropfiles\demo\.gitignore" />
     <Content Include="Content\aloha\plugins\extra\draganddropfiles\demo\index.css" />
     <Content Include="Content\aloha\plugins\extra\draganddropfiles\demo\index.html" />
     <Content Include="Content\aloha\plugins\extra\draganddropfiles\demo\migration\index.css" />
@@ -1349,6 +1350,7 @@
     <Content Include="Content\aloha\plugins\extra\numerated-headers\nls\zh-hans\i18n.js" />
     <Content Include="Content\aloha\plugins\extra\profiler\css\profiler.css" />
     <Content Include="Content\aloha\plugins\extra\profiler\lib\profiler-plugin.js" />
+    <Content Include="Content\aloha\plugins\extra\proxy\adapter\proxy.php" />
     <Content Include="Content\aloha\plugins\extra\proxy\lib\proxy-plugin.js" />
     <Content Include="Content\aloha\plugins\extra\ribbon\css\ribbon.css" />
     <Content Include="Content\aloha\plugins\extra\ribbon\img\fade-in.png" />
@@ -1441,7 +1443,6 @@
     <Content Include="Content\aloha\plugins\common\contenthandler\package.json" />
     <Content Include="Content\aloha\plugins\common\contenthandler\README.md" />
     <Content Include="Content\aloha\plugins\common\highlighteditables\package.json" />
-    <Content Include="Content\aloha\plugins\common\image\demo\crop.php" />
     <Content Include="Content\aloha\plugins\common\image\package.json" />
     <Content Include="Content\aloha\plugins\common\image\README.md" />
     <Content Include="Content\aloha\plugins\common\list\package.json" />
@@ -1452,7 +1453,6 @@
     <Content Include="Content\aloha\plugins\extra\cite\package.json" />
     <Content Include="Content\aloha\plugins\extra\cite\README" />
     <Content Include="Content\aloha\plugins\extra\comments\package.json" />
-    <Content Include="Content\aloha\plugins\extra\draganddropfiles\demo\.gitignore" />
     <Content Include="Content\aloha\plugins\extra\draganddropfiles\demo\specs\DragnDropnImage.graphml" />
     <Content Include="Content\aloha\plugins\extra\draganddropfiles\demo\upload.php.example" />
     <Content Include="Content\aloha\plugins\extra\draganddropfiles\package.json" />
@@ -1472,7 +1472,6 @@
     <Content Include="Content\aloha\plugins\extra\linkchecker\proxy.php.example" />
     <Content Include="Content\aloha\plugins\extra\metaview\README" />
     <Content Include="Content\aloha\plugins\extra\numerated-headers\README" />
-    <Content Include="Content\aloha\plugins\extra\proxy\adapter\proxy.php" />
     <Content Include="Content\aloha\plugins\extra\ribbon\package.json" />
     <Content Include="Content\aloha\plugins\extra\ribbon\README.md" />
     <Content Include="Content\aloha\plugins\extra\speak\package.json" />
